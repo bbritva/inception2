@@ -2,11 +2,22 @@ version: '3.9'
 
 services:
   mariadb:
-    build: mariadb
+    build: srcs/requirements/mariadb
     container_name: mariadb
     env_file:
       - .env
+    volumes:
+      - db:/var/lib/mysql
   
-  nginx:
-    build: nginx
-    container_name: nginx
+  # nginx:
+  #   build: nginx
+  #   container_name: nginx
+
+volumes:
+  db:
+    name: volume_db
+    driver: local
+    driver_opts: 
+      type: none
+      o: bind
+      device: ${HOME}/data/db
