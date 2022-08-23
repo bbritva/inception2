@@ -9,13 +9,26 @@ services:
     volumes:
       - db:/var/lib/mysql
   
-  # nginx:
-  #   build: nginx
-  #   container_name: nginx
+  nginx:
+    build: srcs/requirements/nginx
+    container_name: nginx
+    env_file:
+      - .env
+    ports:
+      - 443:443
+    volumes:
+      - wp:/var/www/
 
 volumes:
   db:
     name: volume_db
+    driver: local
+    driver_opts: 
+      type: none
+      o: bind
+      device: ${HOME}/data/db
+  wp:
+    name: volume_wp
     driver: local
     driver_opts: 
       type: none
