@@ -2,7 +2,7 @@ FROM debian:buster
 RUN apt-get update && apt-get -y install php7.3 php-mysqli php-fpm mariadb-client curl
 
 COPY ./www.conf /etc/php/7.3/fpm/pool.d
-COPY /tools/start.sh .
+COPY /start.sh .
 RUN chmod +x /start.sh
 
 
