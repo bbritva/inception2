@@ -10,6 +10,8 @@ build:
 stop: 
 	docker compose -f srcs/docker-compose.yml stop
 
+down: stop
+
 clean: stop
 	docker-compose -f srcs/docker-compose.yml rm
 	# docker system prune -a --force
