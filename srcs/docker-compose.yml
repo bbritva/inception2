@@ -7,7 +7,9 @@ services:
     env_file:
       - .env
     volumes:
-      - db:/var/lib/mysql
+      - volume_db:/var/lib/mysql
+    expose:
+      - 3306
     networks:
       - my_net
     # restart: always
@@ -20,7 +22,7 @@ services:
     ports:
       - 443:443
     volumes:
-      - wp:/var/www/
+      - volume_wp:/var/www/html
     networks:
       - my_net
     depends_on:
@@ -33,23 +35,25 @@ services:
     env_file:
       - .env
     volumes:
-      - wp:/var/www/
+      - volume_wp:/var/www/html
     networks:
       - my_net
+    expose:
+      - 9000
     depends_on:
       - mariadb
     # restart: always
   
 
 volumes:
-  db:
+  volume_db:
     name: volume_db
     driver: local
     driver_opts: 
       type: none
       o: bind
       device: ${HOME}/data/db
-  wp:
+  volume_wp:
     name: volume_wp
     driver: local
     driver_opts: 
