@@ -8,9 +8,9 @@ COPY /start.sh .
 RUN chmod +x /start.sh
 
 
-# ADD https://ru.wordpress.org/wordpress-5.7.2-ru_RU.tar.gz /var/www/
-# RUN cd /var/www && tar -xzvf wordpress-5.7.2-ru_RU.tar.gz
-# RUN rm -f /var/www/wordpress-5.7.2-ru_RU.tar.gz
+ADD https://ru.wordpress.org/wordpress-5.7.2-ru_RU.tar.gz /var/www/
+RUN cd /var/www && tar -xzvf wordpress-5.7.2-ru_RU.tar.gz
+RUN rm -f /var/www/wordpress-5.7.2-ru_RU.tar.gz
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
