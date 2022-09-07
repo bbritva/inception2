@@ -4,9 +4,9 @@ if [ ! -e /var/www/html/wp-config.php ];
 then
 	sed -i -e 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 0.0.0.0:9000/g' /etc/php/7.3/fpm/pool.d/www.conf
 	cd /var/www/html/
+	sleep 20
 	echo "wp core download --allow-root"
 	wp core download --allow-root
-	# sleep 10
 	echo "wp config create ${MYSQL_DB_NAME}"
 	wp config create \
 		--dbname=${MYSQL_DB_NAME} \
