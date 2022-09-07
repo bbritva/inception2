@@ -1,8 +1,8 @@
-version: '3.9'
+version: '3.7'
 
 services:
   mariadb:
-    build: srcs/requirements/mariadb
+    build: requirements/mariadb
     container_name: mariadb
     env_file:
       - .env
@@ -15,7 +15,7 @@ services:
     # restart: always
 
   nginx:
-    build: srcs/requirements/nginx
+    build: requirements/nginx
     container_name: nginx
     env_file:
       - .env
@@ -30,7 +30,7 @@ services:
     # restart: always
   
   wordpress:
-    build: srcs/requirements/wordpress
+    build: requirements/wordpress
     container_name: wordpress
     env_file:
       - .env

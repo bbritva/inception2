@@ -1,14 +1,14 @@
 all: build up
 
 up:
-	docker compose -f srcs/docker-compose.yml up -d
+	docker-compose -f srcs/docker-compose.yml up -d
 
 build:
 	mkdir -p ~/data/db ~/data/wp
-	docker compose -f srcs/docker-compose.yml build
+	docker-compose -f srcs/docker-compose.yml build
 
 stop: 
-	docker compose -f srcs/docker-compose.yml stop
+	docker-compose -f srcs/docker-compose.yml stop
 
 down: stop
 
