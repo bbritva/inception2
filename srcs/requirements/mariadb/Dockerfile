@@ -1,6 +1,5 @@
 FROM debian:buster
-RUN apt-get update && apt-get -y install dumb-init mariadb-server
-# RUN apt-get -y install dumb-init
+RUN apt-get update && apt-get -y install mariadb-server
 
 COPY tools/start.sh ./
 RUN chmod +x start.sh
@@ -10,6 +9,4 @@ RUN mkdir -p /var/lib/mysql /run/mysqld
 RUN chown -R mysql:root /var/lib/mysql /run/mysqld
 EXPOSE 3306
 
-# ENTRYPOINT [ "/usr/bin/dumb-init", "--" ]
 CMD [ "./start.sh" ]
-# ENTRYPOINT [ "/bin/bash" ]

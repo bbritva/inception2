@@ -5,7 +5,7 @@ then
     mysqld&
     sleep 20
 
-    echo "CREATE DATABASE IF NOT EXISTS  ${MYSQL_DB_NAME} DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;"
+    echo "CREATE DATABASE IF NOT EXISTS  ${MYSQL_DB_NAME};"
     mariadb -u root -e "CREATE DATABASE IF NOT EXISTS  ${MYSQL_DB_NAME};"
 
     echo "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';"

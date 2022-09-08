@@ -59,7 +59,7 @@ volumes:
     driver_opts: 
       type: none
       o: bind
-      device: ${HOME}/data/db
+      device: ${HOME}/data/wp
 
 networks:
   my_net:
