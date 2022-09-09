@@ -3,7 +3,7 @@
 if [ ! -e /var/www/html/wp-config.php ];
 then
 	cd /var/www/html/
-	sleep 20
+	sleep 5
 	echo "wp core download --allow-root"
 	wp core download --allow-root
 	echo "wp config create ${MYSQL_DB_NAME}"

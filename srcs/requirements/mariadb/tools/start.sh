@@ -3,7 +3,7 @@ if [ ! -d /var/lib/mysql/${MYSQL_DB_NAME} ];
 then
     mysql_install_db --user=root --ldata=/var/lib/mysql
     mysqld&
-    sleep 20
+    sleep 2
 
     echo "CREATE DATABASE IF NOT EXISTS  ${MYSQL_DB_NAME};"
     mariadb -u root -e "CREATE DATABASE IF NOT EXISTS  ${MYSQL_DB_NAME};"
